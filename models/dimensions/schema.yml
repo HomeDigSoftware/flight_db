@@ -3,10 +3,17 @@ version: 2
 models:
   - name: dim_aircraft
     description: "Aircraft dimension model"
-    config:
-      post_hook: "insert into {{ this }}  (dbt_run_time) values ('{{ run_started_at.strftime('%Y-%m-%d %H:%M:%S') }}'::timestamp)" 
     columns:
       - name: aircraft_code
+        description: "The primary key for this table"
+        data_tests:
+          - unique
+          - not_null
+          
+  - name: dim_airport
+    description: "Airport dimension model"
+    columns:
+      - name: airport_code
         description: "The primary key for this table"
         data_tests:
           - unique
