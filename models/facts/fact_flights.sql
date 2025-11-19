@@ -1,16 +1,10 @@
 
 with t1 as (
 select
-    flight_id,
-    flight_no,
-    scheduled_departure,
-    scheduled_arrival,
-    departure_airport,
-    status,
+    *,
     actual_arrival - actual_departure AS duration_flight,
-    scheduled_arrival - scheduled_departure AS flight_duration_expected,
-    '{{ run_started_at.strftime("%Y-%m-%d %H:%M:%S") }}' as dbt_time
-from stg.flights
+    scheduled_arrival - scheduled_departure AS flight_duration_expected
+from {{ source('stg', 'flights') }}
 )
 select 
     *,
@@ -21,5 +15,6 @@ select
         when flight_duration_expected > duration_flight then 'long'
         when flight_duration_expected < duration_flight then 'short'
         else 'as expected'
-    end as flight_duration_category
+    end as flight_duration_category , 
+    '{{ run_started_at.strftime("%Y-%m-%d %H:%M:%S") }}' as dbt_time
 from t1

@@ -18,3 +18,15 @@ models:
         data_tests:
           - unique
           - not_null
+
+sources: 
+  - name: stg
+    database: flight_DB
+    schema: stg
+    tables: 
+      - name: aircrafts_data
+        identifier: aircrafts_data 
+      - name: seats
+        identifier: seats 
+      - name: airports_data
+        identifier: airports_data
