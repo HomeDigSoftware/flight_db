@@ -9,4 +9,4 @@ select
     coordinates,
     timezone,
     '{{ run_started_at.strftime("%Y-%m-%d %H:%M:%S") }}' as dbt_time
-from stg.airports_data
+from {{ source('stg', 'airports_data') }}

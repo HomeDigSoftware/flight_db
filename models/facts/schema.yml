@@ -7,3 +7,20 @@ models:
         data_tests:
           - unique
           - not_null
+
+
+sources: 
+  - name: stg
+    database: flight_DB
+    schema: stg
+    tables: 
+      - name: flights
+        identifier: flights 
+      - name: boarding_passes
+        identifier: boarding_passes
+      - name: ticket_flights
+        identifier: ticket_flights
+      - name: bookings
+        identifier: bookings
+      - name: tickets
+        identifier: tickets

@@ -36,8 +36,9 @@ models:
       +materialized: view
     dimensions: 
       +materialized: table
-    testing:
+    facts:
       +materialized: table
+
 
         
     
