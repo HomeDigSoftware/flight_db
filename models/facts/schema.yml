@@ -8,10 +8,28 @@ models:
           - unique
           - not_null
 
+  - name: fact_tickets
+    description: "Fact table for tickets"
+    columns:
+      - name: ticket_no
+        description: "The primary key for this table"
+        data_tests:
+          - unique
+          - not_null
+
+  - name: fact_boarding_passes
+    description: "Fact table for boarding passes"
+    columns:
+      - name: ticket_no , boarding_no, seat_no
+        description: "togther they form the primary key for this table"
+        data_tests:
+          - unique
+          - not_null
+
 
 sources: 
   - name: stg
-    database: flight_DB
+    database: postgres
     schema: stg
     tables: 
       - name: flights

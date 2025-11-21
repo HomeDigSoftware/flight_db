@@ -3,3 +3,8 @@ target/
 dbt_packages/
 logs/
 dbt_internal_packages/
+
+dbt_project.yml
+package-lock.yml
+facts/schema.yml
+dimensions/schema.yml
