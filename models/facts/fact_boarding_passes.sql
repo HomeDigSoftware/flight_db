@@ -1,4 +1,13 @@
-
+{{
+  config(
+    indexes=[
+        {
+            "columns": ["last_update", "ticket_no"],
+            "unique": False,
+        }
+    ],
+    )
+}}
 
 select 
     tf.*,

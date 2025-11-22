@@ -1,5 +1,10 @@
 {{config (
-    unique_key='ticket_no'
+    unique_key='ticket_no',
+    indexes=[
+        {
+            "columns": ["last_update", "ticket_no"]
+        }
+    ]
 )}}
 
 
