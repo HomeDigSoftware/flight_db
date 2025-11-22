@@ -2,6 +2,7 @@
 target/
 dbt_packages/
 logs/
+images/
 dbt_internal_packages/
 
 dbt_project.yml

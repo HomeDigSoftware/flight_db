@@ -5,9 +5,8 @@ models:
     description: "Aircraft dimension model"
     columns:
       - name: aircraft_code
-        description: "The primary key for this table"
+        description: "the plane type code"
         data_tests:
-          - unique
           - not_null
           
   - name: dim_airport

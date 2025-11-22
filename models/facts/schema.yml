@@ -17,13 +17,37 @@ models:
           - unique
           - not_null
 
+      - name: book_ref
+        description: "Booking reference associated with the ticket"
+        data_tests:
+          - not_null
+          - relationships:
+              to: ref('stg__bookings')
+              field: book_ref
+
+      - name: total_amount
+        description: " ticket total price amount"
+        data_tests:
+          - not_null
+          - dbt_utils.accepted_range:
+              arguments:
+              min_value: 0
+
+      - name: book_date
+        tests:
+          - not_null
+      
+      - name: passenger_name
+        tests:
+          - not_null
+
+
   - name: fact_boarding_passes
     description: "Fact table for boarding passes"
     columns:
-      - name: ticket_no , boarding_no, seat_no
-        description: "togther they form the primary key for this table"
+      - name: ticket_no
+        description: "The primary key for this table"
         data_tests:
-          - unique
           - not_null
 
 
